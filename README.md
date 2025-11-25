@@ -1,11 +1,12 @@
-Overview
+# C++ Hospital Patient Management System  
+**Priority Queue • File I/O • Transaction Logging • Daily Analytics**
 
-This project combines two earlier C++ programs — a Hospital Management System and a Sentiment Analysis Program — into one integrated system. The hospital part focuses on managing patients, clinics, and operations using queues, files, and data validation, while the sentiment analysis part focuses on analyzing written feedback and calculating overall sentiment scores.
+A full-featured patient management system for a multi-department hospital, built in C++
 
-The Goal is to create a system that not only manages hospital operations efficiently but can also analyze patient feedback
-
-Current Progress
-
-
-
-Work is ongoing to expand the system with additional features 
+- **Priority queue** implementation: Critical patients automatically jump ahead of regular patients (custom linked-list-style logic using `vector` with insertion rules)
+- Loads initial patients from `patient.csv` with full validation (clinic code, numeric SSN, capacity limits)
+- Interactive menu system for three clinics (Heart, Pulmonary, Plastic Surgery)
+- Supports: Add regular/critical patients • Operate (serve next patient) • Cancel by SSN • List current queue
+- Complete transaction logging to `transaction.log` (every action, error, and patient movement)
+- **End-of-day analytics summary** — shows patients treated, critical cases prioritized, and remaining patients per clinic
+- Generates `patient_next_day.csv` for continuity

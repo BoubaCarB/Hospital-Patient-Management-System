@@ -75,6 +75,8 @@ void Clinic::operatePatient() {
     }
     Patient p = patients[0];
     patients.erase(patients.begin());
+    treatedToday++;
+    if (p.isCritical) criticalTreated++;
     string status = p.isCritical ? "(Critical)" : "(Regular)";
     cout << name << " Patient " << status << ": " << p.firstName << " " << p.lastName << " was taken to the operating room.\n";
     transFile << name << " Patient " << status << ": " << p.firstName << " " << p.lastName << " was taken to the operating room.\n";

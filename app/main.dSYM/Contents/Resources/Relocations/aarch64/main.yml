@@ -1,5 +1,5 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/boubacarbalde/Desktop/IntegratedHospitalSentiment/app/main'
+binary-path:     '/Users/boubacarbalde/Desktop/Project/Hospital/app/main'
 relocations:     []
 ...

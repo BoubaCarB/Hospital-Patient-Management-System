@@ -39,4 +39,7 @@ public:
     bool cancelPatient(string ssn);  // cancel patient by SSN
     void listPatients() const;  // list all patients
     void saveForTomorrow(ofstream& outFile) const;  // save for next day
+    int treatedToday = 0;
+    int criticalTreated = 0;
+    int getPatientCount() const { return patients.size(); }
 };

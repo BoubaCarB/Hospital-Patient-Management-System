@@ -6,7 +6,8 @@
 #include <string>
 using namespace std;
 
-#include "functions.h"   // header, NOT functions.cpp
+//#include "functions.h"   // header, NOT functions.cpp
+#include "functions.h"
 #include "Hospital.h"
 
 void runHospital() {
@@ -146,6 +147,32 @@ void runHospital() {
     outFile.close();
 
     transFile.close();  // Close files
+    // END OF DAY SUMMARY
+    cout << "\n=== END OF DAY CLINIC SUMMARY ===\n";
+    transFile << "\n=== END OF DAY CLINIC SUMMARY ===\n";
+
+    auto printSummary = [&](Clinic& c) {
+        cout << c.name << ":\n";
+        cout << "  • Patients treated today: " << c.treatedToday << "\n";
+        cout << "  • Critical patients prioritized: " << c.criticalTreated << "\n";
+        cout << "  • Patients remaining: " << c.getPatientCount() << "\n\n";
+    
+        transFile << c.name << ":\n";
+        transFile << "  • Patients treated today: " << c.treatedToday << "\n";
+        transFile << "  • Critical patients prioritized: " << c.criticalTreated << "\n";
+        transFile << "  • Patients remaining: " << c.getPatientCount() << "\n\n";
+    };
+
+    printSummary(heartClinic);
+    printSummary(pulmonaryClinic);
+    printSummary(plasticClinic);
+
+    cout << "Total patients served today: " 
+        << (heartClinic.treatedToday + pulmonaryClinic.treatedToday + plasticClinic.treatedToday) 
+        << "\n";
+    transFile << "Total patients served today: " 
+            << (heartClinic.treatedToday + pulmonaryClinic.treatedToday + plasticClinic.treatedToday) 
+            << "\n";
     cout << "Program ended. Check transaction.log and patient_next_day.csv.\n";
     return ;
 }
